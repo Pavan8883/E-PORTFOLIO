@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">Portfolio</div>
+            <button class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#personal" class="nav-link">About</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#achievements" class="nav-link">Achievements</a></li>
+                <li><a href="#reflection" class="nav-link">Reflection</a></li>
+                <li><a href="#samples" class="nav-link">Work Samples</a></li>
+                <li><a href="#extracurricular" class="nav-link">Activities</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Personal Information Section -->
+    <section id="personal" class="section hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="profile-image">
+                    <% if (data.personalInfo.profileImage) { %>
+                        <img src="<%= data.personalInfo.profileImage %>" alt="Profile Photo">
+                    <% } else { %>
+                        <div class="placeholder-image">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    <% } %>
+                </div>
+                <div class="hero-text">
+                    <h1><%= data.personalInfo.name || 'Your Name' %></h1>
+                    <h2><%= data.personalInfo.title || 'Your Professional Title' %></h2>
+                    <p><%= data.personalInfo.bio || 'Write a brief professional bio here. Describe your background, interests, and what makes you unique as a professional.' %></p>
+                    <div class="contact-info">
+                        <span><i class="fas fa-envelope"></i> <%= data.personalInfo.email || 'your.email@example.com' %></span>
+                        <span><i class="fas fa-phone"></i> <%= data.personalInfo.phone || 'Your Phone Number' %></span>
+                        <span><i class="fas fa-map-marker-alt"></i> <%= data.personalInfo.location || 'Your Location' %></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-grid">
+                <% if (data.education.length > 0) { %>
+                    <% data.education.forEach(edu => { %>
+                        <div class="education-item">
+                            <h3><%= edu.degree %></h3>
+                            <h4><%= edu.institution %></h4>
+                            <span class="date"><%= edu.year %></span>
+                            <p><%= edu.description %></p>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <div class="education-item">
+                        <h3>Your Degree</h3>
+                        <h4>Your Institution</h4>
+                        <span class="date">Year</span>
+                        <p>Brief description of your studies, achievements, or relevant coursework.</p>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section alt-bg">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <div class="skills-list">
+                        <% if (data.skills.technical.length > 0) { %>
+                            <% data.skills.technical.forEach(skill => { %>
+                                <span class="skill-tag"><%= skill %></span>
+                            <% }) %>
+                        <% } else { %>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">HTML/CSS</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Database Management</span>
+                        <% } %>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Soft Skills</h3>
+                    <div class="skills-list">
+                        <% if (data.skills.soft.length > 0) { %>
+                            <% data.skills.soft.forEach(skill => { %>
+                                <span class="skill-tag soft"><%= skill %></span>
+                            <% }) %>
+                        <% } else { %>
+                            <span class="skill-tag soft">Communication</span>
+                            <span class="skill-tag soft">Team Leadership</span>
+                            <span class="skill-tag soft">Problem Solving</span>
+                            <span class="skill-tag soft">Project Management</span>
+                            <span class="skill-tag soft">Critical Thinking</span>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Experience & Projects Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title">Work Experience & Projects</h2>
+            <div class="timeline">
+                <% if (data.experience.length > 0) { %>
+                    <% data.experience.forEach(exp => { %>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h3><%= exp.position %></h3>
+                                <h4><%= exp.company %></h4>
+                                <span class="date"><%= exp.duration %></span>
+                                <p><%= exp.description %></p>
+                                <% if (exp.achievements && exp.achievements.length > 0) { %>
+                                    <ul>
+                                        <% exp.achievements.forEach(achievement => { %>
+                                            <li><%= achievement %></li>
+                                        <% }) %>
+                                    </ul>
+                                <% } %>
+                            </div>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Your Job Title</h3>
+                            <h4>Company Name</h4>
+                            <span class="date">Start Date - End Date</span>
+                            <p>Describe your role, responsibilities, and key contributions in this position.</p>
+                            <ul>
+                                <li>Key achievement or responsibility</li>
+                                <li>Another significant contribution</li>
+                                <li>Notable project or outcome</li>
+                            </ul>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements & Awards Section -->
+    <section id="achievements" class="section alt-bg">
+        <div class="container">
+            <h2 class="section-title">Achievements & Awards</h2>
+            <div class="achievements-grid">
+                <% if (data.achievements.length > 0) { %>
+                    <% data.achievements.forEach(achievement => { %>
+                        <div class="achievement-item">
+                            <i class="fas fa-trophy"></i>
+                            <h3><%= achievement.title %></h3>
+                            <p><%= achievement.description %></p>
+                            <span class="date"><%= achievement.date %></span>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <div class="achievement-item">
+                        <i class="fas fa-trophy"></i>
+                        <h3>Your Achievement</h3>
+                        <p>Description of your accomplishment, award, or recognition.</p>
+                        <span class="date">Date</span>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reflections & Personal Statement Section -->
+    <section id="reflection" class="section">
+        <div class="container">
+            <h2 class="section-title">Reflections & Personal Statement</h2>
+            <div class="reflection-content">
+                <p>Write your personal reflection on your professional journey, career goals, and what drives your passion for your field. This is your opportunity to share your thoughts on your growth, challenges you've overcome, and your vision for the future.</p>
+                <p>Consider including:</p>
+                <ul>
+                    <li>Your professional philosophy and values</li>
+                    <li>Key lessons learned throughout your career</li>
+                    <li>Future goals and aspirations</li>
+                    <li>What motivates and inspires you</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Samples Section -->
+    <section id="samples" class="section alt-bg">
+        <div class="container">
+            <h2 class="section-title">Samples of Work</h2>
+            <div class="samples-grid">
+                <% if (data.workSamples.length > 0) { %>
+                    <% data.workSamples.forEach(sample => { %>
+                        <div class="sample-item">
+                            <div class="sample-image">
+                                <% if (sample.image) { %>
+                                    <img src="<%= sample.image %>" alt="<%= sample.title %>">
+                                <% } else { %>
+                                    <div class="placeholder-sample">
+                                        <i class="fas fa-file-alt"></i>
+                                    </div>
+                                <% } %>
+                            </div>
+                            <h3><%= sample.title %></h3>
+                            <p><%= sample.description %></p>
+                            <% if (sample.link) { %>
+                                <a href="<%= sample.link %>" class="sample-link" target="_blank">View Project</a>
+                            <% } %>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <div class="sample-item">
+                        <div class="sample-image">
+                            <div class="placeholder-sample">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                        </div>
+                        <h3>Project Title</h3>
+                        <p>Brief description of your project, the technologies used, and the problem it solves.</p>
+                        <a href="#" class="sample-link">View Project</a>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </section>
+
+    <!-- Extracurricular & Volunteering Section -->
+    <section id="extracurricular" class="section">
+        <div class="container">
+            <h2 class="section-title">Extracurricular Activities & Volunteering</h2>
+            <div class="activities-grid">
+                <% if (data.extracurricular.length > 0) { %>
+                    <% data.extracurricular.forEach(activity => { %>
+                        <div class="activity-item">
+                            <h3><%= activity.title %></h3>
+                            <h4><%= activity.organization %></h4>
+                            <span class="date"><%= activity.duration %></span>
+                            <p><%= activity.description %></p>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <div class="activity-item">
+                        <h3>Activity or Volunteer Role</h3>
+                        <h4>Organization Name</h4>
+                        <span class="date">Duration</span>
+                        <p>Description of your involvement, contributions, and skills developed.</p>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume & References Section -->
+    <section id="resume" class="section alt-bg">
+        <div class="container">
+            <h2 class="section-title">Resume & References</h2>
+            <div class="resume-section">
+                <div class="resume-download">
+                    <a href="/resume" class="resume-btn" target="_blank">
+                        <i class="fas fa-download"></i>
+                        View Resume
+                    </a>
+                </div>
+                <div class="references">
+                    <h3>References</h3>
+                    <% if (data.references.length > 0) { %>
+                        <% data.references.forEach(ref => { %>
+                            <div class="reference-item">
+                                <h4><%= ref.name %></h4>
+                                <p><%= ref.title %></p>
+                                <p><%= ref.company %></p>
+                                <p><i class="fas fa-envelope"></i> <%= ref.email %></p>
+                                <p><i class="fas fa-phone"></i> <%= ref.phone %></p>
+                            </div>
+                        <% }) %>
+                    <% } else { %>
+                        <p>References available upon request</p>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <h2 class="section-title">Contact & Links</h2>
+            <div class="contact-content">
+                <div class="contact-info-detailed">
+                    <h3>Get in Touch</h3>
+                    <p><i class="fas fa-envelope"></i> <%= data.personalInfo.email || 'your.email@example.com' %></p>
+                    <p><i class="fas fa-phone"></i> <%= data.personalInfo.phone || 'Your Phone Number' %></p>
+                    <p><i class="fas fa-map-marker-alt"></i> <%= data.personalInfo.location || 'Your Location' %></p>
+                </div>
+                <div class="social-links">
+                    <h3>Connect Online</h3>
+                    <div class="social-icons">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i> Twitter</a>
+                        <a href="#" class="social-link"><i class="fas fa-globe"></i> Website</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 <%= data.personalInfo.name || 'Your Name' %>. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>
