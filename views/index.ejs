@@ -11,6 +11,14 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
+    <!-- Loading Animation -->
+    <div class="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <p>Loading Portfolio...</p>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -51,13 +59,13 @@
                     <% } %>
                 </div>
                 <div class="hero-text">
-                    <h1><%= data.personalInfo.name || 'Your Name' %></h1>
-                    <h2><%= data.personalInfo.title || 'Your Professional Title' %></h2>
-                    <p><%= data.personalInfo.bio || 'Write a brief professional bio here. Describe your background, interests, and what makes you unique as a professional.' %></p>
+                    <h1><%= data.personalInfo.name || 'SAI PAVAN KUMAR MUTYALA' %></h1>
+                    <h2><%= data.personalInfo.title || 'Computer Science and Engineering Student' %></h2>
+                    <p><%= data.personalInfo.bio || 'I am a Computer Science and Engineering Student at the Indian Institute of Information Technology Sri City. I am interested in web development and problem solving.' %></p>
                     <div class="contact-info">
-                        <span><i class="fas fa-envelope"></i> <%= data.personalInfo.email || 'your.email@example.com' %></span>
-                        <span><i class="fas fa-phone"></i> <%= data.personalInfo.phone || 'Your Phone Number' %></span>
-                        <span><i class="fas fa-map-marker-alt"></i> <%= data.personalInfo.location || 'Your Location' %></span>
+                        <span><i class="fas fa-envelope"></i> <%= data.personalInfo.email || 'saipavankumar.m23@iiits.in' %></span>
+                        <span><i class="fas fa-phone"></i> <%= data.personalInfo.phone || '+918885631348' %></span>
+                        <span><i class="fas fa-map-marker-alt"></i> <%= data.personalInfo.location || 'Bapatla, Andhra Pradesh, India' %></span>
                     </div>
                 </div>
             </div>
@@ -80,10 +88,16 @@
                     <% }) %>
                 <% } else { %>
                     <div class="education-item">
-                        <h3>Your Degree</h3>
-                        <h4>Your Institution</h4>
-                        <span class="date">Year</span>
-                        <p>Brief description of your studies, achievements, or relevant coursework.</p>
+                        <h3>Bachelor of Technology in Computer Science and Engineering</h3>
+                        <h4>Indian Institue of Information Technoogy, Sri City, Chittoor, Andhra Pradesh, India</h4>
+                        <span class="date">UG-3</span>
+                        <p>Current CGPA: 8.83</p>
+                    </div>
+                    <div class="education-item">
+                        <h3>Intermediate</h3>
+                        <h4>Indian Institue of Information Technoogy, Sri City, Chittoor, Andhra Pradesh, India</h4>
+                        <span class="date">UG-3</span>
+                        <p>Current CGPA: 8.83</p>
                     </div>
                 <% } %>
             </div>
@@ -364,8 +378,12 @@
             <div class="resume-section">
                 <div class="resume-download">
                     <a href="/resume" class="resume-btn" target="_blank">
-                        <i class="fas fa-download"></i>
+                        <i class="fas fa-eye"></i>
                         View Resume
+                    </a>
+                    <a href="/download-resume" class="resume-btn download-btn">
+                        <i class="fas fa-download"></i>
+                        Download Resume
                     </a>
                 </div>
                 <div class="references">

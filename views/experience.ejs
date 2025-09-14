@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Loading Animation -->
+    <div class="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <p>Loading Portfolio...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">Portfolio</div>
+            <button class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <!-- <li><a href="/about" class="nav-link">About</a></li> -->
+                <li><a href="/education" class="nav-link">Education</a></li>
+                <li><a href="/skills" class="nav-link">Skills</a></li>
+                <li><a href="/experience" class="nav-link active">Experience</a></li>
+                <li><a href="/achievements" class="nav-link">Achievements</a></li>
+                <li><a href="/contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Experience Hero Section -->
+    <!-- <section class="section hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Work Experience</h1>
+                    <h2>Professional Journey & Career Growth</h2>
+                    <p>My professional experience, career milestones, and the impact I've made in various roles and organizations.</p>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Main Experience Timeline -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="experience-timeline">
+                <% if (data.experience.length> 0) { %>
+                    <% data.experience.forEach(exp=> { %>
+                        <div class="experience-item">
+                            <div class="experience-marker"></div>
+                            <div class="experience-content">
+                                <div class="experience-header">
+                                    <h3>
+                                        <%= exp.position %>
+                                    </h3>
+                                    <h4>
+                                        <%= exp.company %>
+                                    </h4>
+                                    <span class="date">
+                                        <%= exp.duration %>
+                                    </span>
+                                </div>
+                                <p class="experience-description">
+                                    <%= exp.description %>
+                                </p>
+                                <% if (exp.achievements && exp.achievements.length> 0) { %>
+                                    <div class="achievements-section">
+                                        <h5>Key Achievements:</h5>
+                                        <ul>
+                                            <% exp.achievements.forEach(achievement=> { %>
+                                                <li>
+                                                    <%= achievement %>
+                                                </li>
+                                                <% }) %>
+                                        </ul>
+                                    </div>
+                                    <% } %>
+                                        <% if (exp.technologies) { %>
+                                            <div class="technologies-used">
+                                                <h5>Technologies Used:</h5>
+                                                <div class="tech-tags">
+                                                    <% exp.technologies.forEach(tech=> { %>
+                                                        <span class="tech-tag">
+                                                            <%= tech %>
+                                                        </span>
+                                                        <% }) %>
+                                                </div>
+                                            </div>
+                                            <% } %>
+                            </div>
+                        </div>
+                        <% }) %>
+                            <% } else { %>
+                                <div class="experience-item">
+                                    <div class="experience-marker"></div>
+                                    <div class="experience-content">
+                                        <div class="experience-header">
+                                            <h3>Full-Stack Web Development Internship</h3>
+                                            <h4>MediQuick Solutions</h4>
+                                            <span class="date">July 2025 - Aug 2025</span>
+                                        </div>
+                                        <p class="experience-description">Leading the development of scalable web
+                                            applications. Responsible for architecture decisions and implementing best
+                                            practices across the development.</p>
+                                        <div class="achievements-section">
+                                            <h5>Key Achievements:</h5>
+                                            <ul>
+                                                <li>Led development of a microservices-based e-commerce platform serving
+                                                    100K+ users</li>
+                                                <li>Improved application performance by 40% through code optimization
+                                                    and caching strategies</li>
+                                                <li>Mentored 5 junior developers and established coding standards and
+                                                    best practices</li>
+                                                <li>Implemented CI/CD pipeline reducing deployment time by 60%</li>
+                                            </ul>
+                                        </div>
+                                        <div class="technologies-used">
+                                            <h5>Technologies Used:</h5>
+                                            <div class="tech-tags">
+                                                <span class="tech-tag">React</span>
+                                                <span class="tech-tag">Node.js</span>
+                                                <span class="tech-tag">MongoDB</span>
+                                                <span class="tech-tag">AWS</span>
+                                                <span class="tech-tag">Docker</span>
+                                                <span class="tech-tag">Kubernetes</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="experience-item">
+                                    <div class="experience-marker"></div>
+                                    <div class="experience-content">
+                                        <div class="experience-header">
+                                            <h3>Python Internship</h3>
+                                            <h4>InnovateTech</h4>
+                                            <span class="date">July 2024 - September 2024</span>
+                                        </div>
+                                        <p class="experience-description">Developed and maintained web applications
+                                            using modern technologies. Collaborated with cross-functional teams to
+                                            deliver high-quality software solutions.</p>
+                                        <div class="achievements-section">
+                                            <h5>Key Achievements:</h5>
+                                            <ul>
+                                                <li>Built data processing pipelines in Python handling 50K+ daily
+                                                    records</li>
+                                                <li>Developed RESTful APIs with Flask/Django achieving 99.9% uptime and
+                                                    sub-200ms response times</li>
+                                                <li>Automated workflows and integrated third-party APIs using Python
+                                                    scripts</li>
+                                                <li>Reduced runtime errors by 30% through unit testing (PyTest) and
+                                                    rigorous code reviews</li>
+
+                                            </ul>
+                                        </div>
+                                        <div class="technologies-used">
+                                            <h5>Technologies Used:</h5>
+                                            <div class="tech-tags">
+                                                <span class="tech-tag">Python</span>
+                                                <span class="tech-tag">Django</span>
+                                                <span class="tech-tag">Flask</span>
+                                                <span class="tech-tag">FastAPI</span>
+                                                <span class="tech-tag">SQLite</span>
+                                                <span class="tech-tag">PostgreSQL</span>
+                                                <span class="tech-tag">Git</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="experience-item">
+                                    <div class="experience-marker"></div>
+                                    <div class="experience-content">
+                                        <div class="experience-header">
+                                            <h3>Campus Ambassador Program</h3>
+                                            <h4>TechFest, IIT Bombay</h4>
+                                            <span class="date">July 2024 - Dec 2024</span>
+                                        </div>
+                                        <p class="experience-description">Specialized in creating interactive and
+                                            responsive user interfaces. Worked closely with designers to bring creative
+                                            visions to life through code.</p>
+                                        <div class="achievements-section">
+                                            <h5>Key Achievements:</h5>
+                                            <ul>
+                                                <li>Developed 15+ responsive websites with modern UI/UX principles</li>
+                                                <li>Implemented advanced CSS animations and interactive features</li>
+                                                <li>Optimized website loading speeds by 50% through performance best
+                                                    practices</li>
+                                                <li>Collaborated with 3 designers to create cohesive brand experiences
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="technologies-used">
+                                            <h5>Technologies Used:</h5>
+                                            <div class="tech-tags">
+                                                <span class="tech-tag">HTML5</span>
+                                                <span class="tech-tag">CSS3</span>
+                                                <span class="tech-tag">JavaScript</span>
+                                                <span class="tech-tag">React</span>
+                                                <span class="tech-tag">SASS</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% } %>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership & Management Experience -->
+   
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 <%= data.personalInfo.name || 'Sai Pavan Kumar Mutyala' %>. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/js/script.js"></script>
+</body>
+
+</html>

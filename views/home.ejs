@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <p>Loading Portfolio...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">Portfolio</div>
+            <button class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="/" class="nav-link active">Home</a></li>
+                <!-- <li><a href="/about" class="nav-link">About</a></li> -->
+                <li><a href="/education" class="nav-link">Education</a></li>
+                <li><a href="/skills" class="nav-link">Skills</a></li>
+                <li><a href="/experience" class="nav-link">Experience</a></li>
+                <li><a href="/achievements" class="nav-link">Achievements</a></li>
+                <li><a href="/contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Personal Information Section -->
+    <section id="personal" class="section hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="profile-image">
+                    <img src="/profile2.jpeg" alt="Profile Photo">
+                </div>
+                <div class="hero-text">
+                    <h1><%= data.personalInfo.name || 'Sai Pavan Kumar Mutyala' %></h1>
+                    <h2><%= data.personalInfo.title || 'Computer Science and Engineering Student' %></h2>
+                    <p><%= data.personalInfo.bio || 'I am a passionate web developer and data science enthusiast.' %></p>
+                    <div class="contact-info">
+                        <span><i class="fas fa-envelope"></i> <%= data.personalInfo.email || 'saipavankumar.m23@iiits.in' %></span>
+                        <span><i class="fas fa-phone"></i> <%= data.personalInfo.phone || '+918885631348' %></span>
+                        <span><i class="fas fa-map-marker-alt"></i> <%= data.personalInfo.location || 'Bapatla, Andhra Pradesh, India' %></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Personal Information</h2>
+            <div class="about-detailed">
+                <div class="about-text-large">
+                    <h1>About Me</h1>
+                    <p>Welcome to my portfolio! I'm a passionate Computer Science and Engineering Student driven to innovate through full-stack development, AI, and data science with a goal to create impactful scalable technology solutions. I am currently pursuing my Bachelor of Technology in Computer Science and Engineering in my third year, actively honing my skills through academic projects, internships and competitive programming.</p>
+                    
+                    <p>Name: Sai Pavan Kumar Mutyala</p>
+                    <p>Age: 20</p>
+                    <p>Email: saipavankumar.m23@iiits.in</p>
+                    <p>Phone: +918885631348</p>
+                    <p>Location: Bapatla, Andhra Pradesh, India</p>
+                    <p>Education: Bachelor of Technology in Computer Science and Engineering(UG - 3)</p>
+                </div>
+                
+                <div class="about-values">
+                    <h3>My Values</h3>
+                    <div class="values-grid">
+                        <div class="value-item">
+                            <i class="fas fa-heart"></i>
+                            <h4>Passion</h4>
+                            <p>I'm passionate about creating meaningful technology solutions that make a positive impact.</p>
+                        </div>
+                        <div class="value-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h4>Continuous Learning</h4>
+                            <p>I believe in lifelong learning and staying updated with the latest technologies and best practices.</p>
+                        </div>
+                        <div class="value-item">
+                            <i class="fas fa-handshake"></i>
+                            <h4>Collaboration</h4>
+                            <p>I value teamwork and believe that the best solutions come from collaborative efforts.</p>
+                        </div>
+                        <!-- <div class="value-item">
+                            <i class="fas fa-star"></i>
+                            <h4>Excellence</h4>
+                            <p>I strive for excellence in everything I do, from code quality to user experience.</p>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Expertise Section -->
+    <section class="section alt-bg">
+        <div class="container">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="skills-detailed">
+                <div class="skill-category">
+                    <h3>Frontend Development</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Vue.js</span>
+                        <span class="skill-tag">TypeScript</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend Development</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Express.js</span>
+                        <span class="skill-tag">Django</span>
+                        <span class="skill-tag">RESTful APIs</span>
+                        <span class="skill-tag">GraphQL</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Soft Skills</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag soft">Leadership</span>
+                        <span class="skill-tag soft">Communication</span>
+                        <span class="skill-tag soft">Problem Solving</span>
+                        <span class="skill-tag soft">Project Management</span>
+                        <span class="skill-tag soft">Team Collaboration</span>
+                        <span class="skill-tag soft">Mentoring</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personal Interests Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Personal Interests</h2>
+            <div class="interests-grid">
+                <div class="interest-item">
+                    <i class="fas fa-book"></i>
+                    <h3>Reading</h3>
+                    <p>I enjoy reading books on technology, personal development, and science fiction.</p>
+                </div>
+                <div class="interest-item">
+                    <i class="fas fa-music"></i>
+                    <h3>Music</h3>
+                    <p>Music is a constant companion, from coding sessions to relaxation time.</p>
+                </div>
+                <div class="interest-item">
+                    <i class="fas fa-gamepad"></i>
+                    <h3>Gaming</h3>
+                    <p>I enjoy strategic games that challenge my problem-solving skills.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 <%= data.personalInfo.name || 'Sai Pavan Kumar Mutyala' %>. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>

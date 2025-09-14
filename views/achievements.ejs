@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <p>Loading Portfolio...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">Portfolio</div>
+            <button class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <!-- <li><a href="/about" class="nav-link">About</a></li> -->
+                <li><a href="/education" class="nav-link">Education</a></li>
+                <li><a href="/skills" class="nav-link">Skills</a></li>
+                <li><a href="/experience" class="nav-link">Experience</a></li>
+                <li><a href="/achievements" class="nav-link active">Achievements</a></li>
+                <li><a href="/contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Awards & Recognition Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            <div class="achievements-grid">
+                <% if (data.achievements.length > 0) { %>
+                    <% data.achievements.forEach(achievement => { %>
+                        <div class="achievement-item">
+                            <i class="fas fa-trophy"></i>
+                            <h3><%= achievement.title %></h3>
+                            <p><%= achievement.description %></p>
+                            <span class="date"><%= achievement.date %></span>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <div class="achievement-item">
+                        <i class="fas fa-trophy"></i>
+                        <h3>Technova Coding Competition</h3>
+                        <p>Qualified Coding Round, demonstrating strong problem-solving and algorithmic skills.</p>
+                        <span class="date">2025</span>
+                    </div>
+                    <div class="achievement-item">
+                        <i class="fas fa-star"></i>
+                        <h3>LeetCode Streak Badges</h3>
+                        <p>Solved over 100 algorithmic problems, earning 50-day and 100-day active streak badges.</p>
+                        <span class="date">2024 - Present</span>
+                    </div>
+                    <div class="achievement-item">
+                        <i class="fas fa-medal"></i>
+                        <h3>Campus Ambassador, Techfest IIT Bomby</h3>
+                        <p>Secured 212th rank among top 1000 ambassadors, earning 6000 points for festival.</p>
+                        <span class="date">2023</span>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section alt-bg">
+        <div class="container">
+            <h2 class="section-title">Academic Projects & Work Samples</h2>
+            <div class="projects-grid">
+                <% if (data.projects.length > 0) { %>
+                    <% data.projects.forEach(project => { %>
+                        <div class="project-item">
+                            <div class="project-image">
+                                <% if (project.image) { %>
+                                    <img src="<%= project.image %>" alt="<%= project.title %>">
+                                <% } else { %>
+                                    <div class="placeholder-project">
+                                        <i class="fas fa-code"></i>
+                                    </div>
+                                <% } %>
+                            </div>
+                            <div class="project-content">
+                                <h3><%= project.title %></h3>
+                                <p><%= project.description %></p>
+                                <% if (project.technologies) { %>
+                                    <div class="project-tech">
+                                        <% project.technologies.forEach(tech => { %>
+                                            <span class="tech-tag"><%= tech %></span>
+                                        <% }) %>
+                                    </div>
+                                <% } %>
+                                <div class="project-links">
+                                    <% if (project.demo) { %>
+                                        <a href="<%= project.demo %>" class="project-link" target="_blank">
+                                            <i class="fas fa-external-link-alt"></i> Live Demo
+                                        </a>
+                                    <% } %>
+                                    <% if (project.github) { %>
+                                        <a href="<%= project.github %>" class="project-link" target="_blank">
+                                            <i class="fab fa-github"></i> GitHub
+                                        </a>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <div class="project-item">
+                        <div class="project-image">
+                            <div class="placeholder-project">
+                                <i class="fas fa-code"></i>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>MediQuick</h3>
+                            <p>A full-stack telemedicine application with user authentication, payment integration, and admin dashboard.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">MongoDB</span>
+                                <span class="tech-tag">Stripe API</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i> Live Demo
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="project-item">
+                        <div class="project-image">
+                            <div class="placeholder-project">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Analytics Dashboard</h3>
+                            <p>A comprehensive analytics dashboard with data visualization and reporting capabilities.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">D3.js</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">FastAPI</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i> Live Demo
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-item">
+                        <div class="project-image">
+                            <div class="placeholder-project">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Food Spoilage Detection System</h3>
+                            <p>An IoT based food spoilage detection system with realtime notifications.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Aurdino</span>
+                                <span class="tech-tag">Machine Learning</span>
+                                <span class="tech-tag">Blynk</span>
+                                <!-- <span class="tech-tag">PostgreSQL</span> -->
+                            </div>
+                            <!-- <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i> Live Demo
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                            </div> -->
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Samples Section -->
+    <!-- <section class="section">
+        <div class="container">
+            <h2 class="section-title">Work Samples</h2>
+            <div class="samples-grid">
+                <% if (data.workSamples.length > 0) { %>
+                    <% data.workSamples.forEach(sample => { %>
+                        <div class="sample-item">
+                            <div class="sample-image">
+                                <% if (sample.image) { %>
+                                    <img src="<%= sample.image %>" alt="<%= sample.title %>">
+                                <% } else { %>
+                                    <div class="placeholder-sample">
+                                        <i class="fas fa-file-alt"></i>
+                                    </div>
+                                <% } %>
+                            </div>
+                            <h3><%= sample.title %></h3>
+                            <p><%= sample.description %></p>
+                            <% if (sample.link) { %>
+                                <a href="<%= sample.link %>" class="sample-link" target="_blank">View Project</a>
+                            <% } %>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <div class="sample-item">
+                        <div class="sample-image">
+                            <div class="placeholder-sample">
+                                <i class="fas fa-file-code"></i>
+                            </div>
+                        </div>
+                        <h3>Code Review Documentation</h3>
+                        <p>Comprehensive code review process documentation and best practices implementation.</p>
+                        <a href="#" class="sample-link">View Documentation</a>
+                    </div>
+                    <div class="sample-item">
+                        <div class="sample-image">
+                            <div class="placeholder-sample">
+                                <i class="fas fa-database"></i>
+                            </div>
+                        </div>
+                        <h3>Database Design</h3>
+                        <p>Complex database schema design for a multi-tenant SaaS application with optimization strategies.</p>
+                        <a href="#" class="sample-link">View Design</a>
+                    </div>
+                    <div class="sample-item">
+                        <div class="sample-image">
+                            <div class="placeholder-sample">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                        </div>
+                        <h3>API Documentation</h3>
+                        <p>Comprehensive RESTful API documentation with examples and integration guides.</p>
+                        <a href="#" class="sample-link">View API Docs</a>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Extracurricular Activities Section -->
+    <section class="section alt-bg">
+        <div class="container">
+            <h2 class="section-title">Extracurricular Activities & Volunteering</h2>
+            <div class="activities-grid">
+                <% if (data.extracurricular.length > 0) { %>
+                    <% data.extracurricular.forEach(activity => { %>
+                        <div class="activity-item">
+                            <h3><%= activity.title %></h3>
+                            <h4><%= activity.organization %></h4>
+                            <span class="date"><%= activity.duration %></span>
+                            <p><%= activity.description %></p>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <!-- <div class="activity-item">
+                        <h3>Tech Mentor</h3>
+                        <h4>Code for Good Initiative</h4>
+                        <span class="date">2023 - Present</span>
+                        <p>Mentoring aspiring developers and helping them build their first projects. Conducting workshops on web development fundamentals.</p>
+                    </div> -->
+                    <div class="activity-item">
+                        <h3>Open Source Contributor</h3>
+                        <h4>Various Projects</h4>
+                        <span class="date">2022 - Present</span>
+                        <p>Contributing to open source projects, fixing bugs, and adding new features.</p>
+                    </div>
+                    <!-- <div class="activity-item">
+                        <h3>Hackathon Organizer</h3>
+                        <h4>Local Tech Community</h4>
+                        <span class="date">2023</span>
+                        <p>Organized and judged multiple hackathons, helping participants develop innovative solutions to real-world problems.</p>
+                    </div> -->
+                    <div class="activity-item">
+                        <h3>Volunteer Developer</h3>
+                        <h4>Non-Profit Organization</h4>
+                        <span class="date">2022 - 2023</span>
+                        <p>Developed a website for a local non-profit organization, helping them establish their online presence and reach more people.</p>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 <%= data.personalInfo.name || 'Sai Pavan Kumar Mutyala' %>. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <p>Loading Portfolio...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">Portfolio</div>
+            <button class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <!-- <li><a href="/about" class="nav-link">About</a></li> -->
+                <li><a href="/education" class="nav-link active">Education</a></li>
+                <li><a href="/skills" class="nav-link">Skills</a></li>
+                <li><a href="/experience" class="nav-link">Experience</a></li>
+                <li><a href="/achievements" class="nav-link">Achievements</a></li>
+                <li><a href="/contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Education Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Academic Qualifications</h2>
+            <div class="education-grid">
+                <% if (data.education.length > 0) { %>
+                    <% data.education.forEach(edu => { %>
+                        <div class="education-item">
+                            <div class="education-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3><%= edu.degree %></h3>
+                            <h4><%= edu.institution %></h4>
+                            <span class="date"><%= edu.year %></span>
+                            <p><%= edu.description %></p>
+                            <% if (edu.gpa) { %>
+                                <div class="gpa">
+                                    <strong>GPA: <%= edu.gpa %></strong>
+                                </div>
+                            <% } %>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <div class="education-item">
+                        <div class="education-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Bachelor of Technology in Computer Science</h3>
+                        <h4>Indian Institute of Information Technology, Sri City</h4>
+                        <span class="date">2023 - Present</span>
+                        <p>Actively Learning and Exploring new technologies and frameworks. Data Structures and Algorithms, Operating Systems, Computer Networks, Database Management Systems, and Web Development.</p>
+                        <div class="gpa">
+                            <strong>Current CGPA: 8.83</strong>
+                        </div>
+                    </div>
+                    <div class="education-item">
+                        <div class="education-icon">
+                            <i class="fas fa-school"></i>
+                        </div>
+                        <h3>Intermediate</h3>
+                        <h4>Sri Chaitanya Junior College, Bapatla, Andhra Pradesh, India</h4>
+                        <span class="date">2021 - 2023</span>
+                        <p>Completed intermediate with focus on Mathematics, Physics, and Chemistry. Developed strong analytical and problem-solving skills.</p>
+                        <div class="gpa">
+                            <strong>Percentage: 98.6%</strong>
+                        </div>
+                    </div>
+                    <div class="education-item">
+                        <div class="education-icon">
+                            <i class="fas fa-school"></i>
+                        </div>
+                        <h3>10th Standard</h3>
+                        <h4>Sri Chaitanya Techno School, Bapatla, Andhra Pradesh, India</h4>
+                        <span class="date">2020 - 2021</span>
+                        <p>Completed 10th standard with focus on Mathematics, Physics, Chemistry and Social Studies.</p>
+                        <div class="gpa">
+                            <strong>Percentage: 99.6%</strong>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 <%= data.personalInfo.name || 'Sai Pavan Kumar Mutyala' %>. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>

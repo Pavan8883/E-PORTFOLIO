@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <p>Loading Portfolio...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">Portfolio</div>
+            <button class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <!-- <li><a href="/about" class="nav-link">About</a></li> -->
+                <li><a href="/education" class="nav-link">Education</a></li>
+                <li><a href="/skills" class="nav-link active">Skills</a></li>
+                <li><a href="/experience" class="nav-link">Experience</a></li>
+                <li><a href="/achievements" class="nav-link">Achievements</a></li>
+                <li><a href="/contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Skills Hero Section -->
+    <!-- <section class="section hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Skills & Expertise</h1>
+                    <h2>Technical & Professional Competencies</h2>
+                    <p>Comprehensive overview of my technical skills, programming languages, frameworks, and professional competencies.</p>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Programming Languages Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Programming Languages</h2>
+            <div class="skills-showcase">
+                <div class="skill-category">
+                    <h3>Frontend Languages</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-js-square"></i>
+                            </div>
+                            <h4>JavaScript</h4>
+                            <div class="skill-level">
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 95%"></div>
+                                </div>
+                                <span>Expert</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-html5"></i>
+                            </div>
+                            <h4>HTML5</h4>
+                            <div class="skill-level">
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 98%"></div>
+                                </div>
+                                <span>Expert</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-css3-alt"></i>
+                            </div>
+                            <h4>CSS3</h4>
+                            <div class="skill-level">
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 92%"></div>
+                                </div>
+                                <span>Expert</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-sass"></i>
+                            </div>
+                            <h4>SASS/SCSS</h4>
+                            <div class="skill-level">
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Backend Languages</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-node-js"></i>
+                            </div>
+                            <h4>Node.js</h4>
+                            <div class="skill-level">
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                                <span>Expert</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <h4>Python</h4>
+                            <div class="skill-level">
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 88%"></div>
+                                </div>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-java"></i>
+                            </div>
+                            <h4>Java</h4>
+                            <div class="skill-level">
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%"></div>
+                                </div>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h4>C++</h4>
+                            <div class="skill-level">
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 75%"></div>
+                                </div>
+                                <span>Intermediate</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Frameworks & Libraries Section -->
+    <section class="section alt-bg">
+        <div class="container">
+            <h2 class="section-title">Frameworks & Libraries</h2>
+            <div class="frameworks-grid">
+                <div class="framework-category">
+                    <h3>Frontend Frameworks</h3>
+                    <div class="framework-list">
+                        <div class="framework-item">
+                            <i class="fab fa-react"></i>
+                            <span>React.js</span>
+                            <div class="proficiency">Expert</div>
+                        </div>
+                        <div class="framework-item">
+                            <i class="fab fa-vue"></i>
+                            <span>Vue.js</span>
+                            <div class="proficiency">Advanced</div>
+                        </div>
+                        <div class="framework-item">
+                            <i class="fab fa-angular"></i>
+                            <span>Angular</span>
+                            <div class="proficiency">Intermediate</div>
+                        </div>
+                        <div class="framework-item">
+                            <i class="fab fa-bootstrap"></i>
+                            <span>Bootstrap</span>
+                            <div class="proficiency">Expert</div>
+                        </div>
+                        <div class="framework-item">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>React Native</span>
+                            <div class="proficiency">Advanced</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="framework-category">
+                    <h3>Backend Frameworks</h3>
+                    <div class="framework-list">
+                        <div class="framework-item">
+                            <i class="fas fa-server"></i>
+                            <span>Express.js</span>
+                            <div class="proficiency">Expert</div>
+                        </div>
+                        <div class="framework-item">
+                            <i class="fab fa-python"></i>
+                            <span>Django</span>
+                            <div class="proficiency">Advanced</div>
+                        </div>
+                        <div class="framework-item">
+                            <i class="fas fa-flask"></i>
+                            <span>Flask</span>
+                            <div class="proficiency">Advanced</div>
+                        </div>
+                        <div class="framework-item">
+                            <i class="fas fa-fire"></i>
+                            <span>FastAPI</span>
+                            <div class="proficiency">Intermediate</div>
+                        </div>
+                        <div class="framework-item">
+                            <i class="fas fa-leaf"></i>
+                            <span>Spring Boot</span>
+                            <div class="proficiency">Intermediate</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Database & Tools Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Database & Development Tools</h2>
+            <div class="tools-container">
+                <div class="tool-category">
+                    <h3>Databases</h3>
+                    <div class="tools-grid">
+                        <div class="tool-item">
+                            <i class="fas fa-database"></i>
+                            <h4>MongoDB</h4>
+                            <p>NoSQL database expertise with aggregation pipelines and optimization</p>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fas fa-database"></i>
+                            <h4>PostgreSQL</h4>
+                            <p>Relational database design and complex query optimization</p>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fas fa-database"></i>
+                            <h4>MySQL</h4>
+                            <p>Database administration and performance tuning</p>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fas fa-database"></i>
+                            <h4>Redis</h4>
+                            <p>Caching strategies and in-memory data structures</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-category">
+                    <h3>Development Tools</h3>
+                    <div class="tools-grid">
+                        <div class="tool-item">
+                            <i class="fab fa-git-alt"></i>
+                            <h4>Git & GitHub</h4>
+                            <p>Version control, branching strategies, and collaborative development</p>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fab fa-docker"></i>
+                            <h4>Docker</h4>
+                            <p>Containerization and microservices architecture</p>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fab fa-aws"></i>
+                            <h4>AWS</h4>
+                            <p>Cloud services, EC2, S3, Lambda, and deployment</p>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fas fa-terminal"></i>
+                            <h4>Linux/Unix</h4>
+                            <p>Command line proficiency and server administration</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Soft Skills Section -->
+    <section class="section alt-bg">
+        <div class="container">
+            <h2 class="section-title">Professional Skills</h2>
+            <div class="soft-skills">
+                <div class="soft-skill-category">
+                    <h3>Communication & Leadership</h3>
+                    <div class="soft-skills-list">
+                        <div class="soft-skill-item">
+                            <i class="fas fa-comments"></i>
+                            <span>Team Communication</span>
+                        </div>
+                        <div class="soft-skill-item">
+                            <i class="fas fa-users"></i>
+                            <span>Team Leadership</span>
+                        </div>
+                        <div class="soft-skill-item">
+                            <i class="fas fa-presentation"></i>
+                            <span>Technical Presentations</span>
+                        </div>
+                        <div class="soft-skill-item">
+                            <i class="fas fa-handshake"></i>
+                            <span>Client Relations</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="soft-skill-category">
+                    <h3>Problem Solving & Management</h3>
+                    <div class="soft-skills-list">
+                        <div class="soft-skill-item">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Critical Thinking</span>
+                        </div>
+                        <div class="soft-skill-item">
+                            <i class="fas fa-tasks"></i>
+                            <span>Project Management</span>
+                        </div>
+                        <div class="soft-skill-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Time Management</span>
+                        </div>
+                        <div class="soft-skill-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Strategic Planning</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="soft-skill-category">
+                    <h3>Learning & Adaptability</h3>
+                    <div class="soft-skills-list">
+                        <div class="soft-skill-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Continuous Learning</span>
+                        </div>
+                        <div class="soft-skill-item">
+                            <i class="fas fa-sync-alt"></i>
+                            <span>Adaptability</span>
+                        </div>
+                        <div class="soft-skill-item">
+                            <i class="fas fa-search"></i>
+                            <span>Research Skills</span>
+                        </div>
+                        <div class="soft-skill-item">
+                            <i class="fas fa-book"></i>
+                            <span>Mentoring</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skill Development Timeline -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Skill Development Journey</h2>
+            <div class="skill-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>2024 - Advanced Full-Stack Development</h3>
+                        <p>Mastered advanced React patterns, microservices architecture, and cloud deployment strategies. Focused on performance optimization and scalable system design.</p>
+                        <div class="skills-acquired">
+                            <span class="skill-tag">Advanced React</span>
+                            <span class="skill-tag">Microservices</span>
+                            <span class="skill-tag">AWS Advanced</span>
+                            <span class="skill-tag">Performance Optimization</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>2023 - Cloud & DevOps</h3>
+                        <p>Expanded expertise in cloud platforms, containerization, and DevOps practices. Implemented CI/CD pipelines and automated deployment processes.</p>
+                        <div class="skills-acquired">
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">Kubernetes</span>
+                            <span class="skill-tag">CI/CD</span>
+                            <span class="skill-tag">Cloud Architecture</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>2022 - Backend Specialization</h3>
+                        <p>Deepened knowledge in backend development, database design, and API development. Gained expertise in multiple programming languages and frameworks.</p>
+                        <div class="skills-acquired">
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Database Design</span>
+                            <span class="skill-tag">RESTful APIs</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>2021 - Frontend Mastery</h3>
+                        <p>Focused on modern frontend development, learning React, Vue.js, and advanced CSS techniques. Built responsive and interactive user interfaces.</p>
+                        <div class="skills-acquired">
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Vue.js</span>
+                            <span class="skill-tag">Advanced CSS</span>
+                            <span class="skill-tag">Responsive Design</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>2020 - Foundation Building</h3>
+                        <p>Started the journey with fundamental web technologies, learning HTML, CSS, JavaScript, and basic programming concepts.</p>
+                        <div class="skills-acquired">
+                            <span class="skill-tag">HTML5</span>
+                            <span class="skill-tag">CSS3</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Programming Fundamentals</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 <%= data.personalInfo.name || 'Sai Pavan Kumar Mutyala' %>. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>
